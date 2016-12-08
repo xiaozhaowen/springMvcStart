@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+  <!--maven默认生成的web.xml文件不能支持el表达式,需要我们在这里对web.xml做一些修改来支持-->
+
+
+  <display-name>SpringMVCDemo Web Application</display-name>
+
+  
+  <servlet>
+    <servlet-name>mvc-dispatcher</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/configs/spring/mvc-dispatcher-servlet.xml</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>mvc-dispatcher</servlet-name>
+    <!--mvc-dispatcher拦截所有的请求-->
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+</web-app>
