@@ -30,7 +30,7 @@
     <mvc:annotation-driven/>
 
     <!-- 静态资源处理， css， js， imgs -->
-    <mvc:resources mapping="/resources/**" location="/resources"/>
+    <mvc:resources mapping="/resources/**" location="/resources/" />
 
 
     <!--前缀加上后缀生成一个完整的jsp路径-->
