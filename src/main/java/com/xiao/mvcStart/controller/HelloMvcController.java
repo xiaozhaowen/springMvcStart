@@ -49,7 +49,7 @@ public class HelloMvcController {
     @ResponseBody
     public String say( Integer age){
         System.out.println("param age is " + age);
-        return "Age is " +age;
+        return "Age is 年龄" +age;
     }
 
 
