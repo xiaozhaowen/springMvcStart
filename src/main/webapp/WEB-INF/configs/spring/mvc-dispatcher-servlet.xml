@@ -67,7 +67,7 @@
     <!--配置拦截器-->
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/*/hello"/>
+            <mvc:mapping path="/interceptor/*"/>
             <bean class="com.xiao.interceptor.TestOneInterceptor"/>
         </mvc:interceptor>
 

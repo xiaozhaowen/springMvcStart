@@ -27,20 +27,26 @@ public class TestOneInterceptor implements HandlerInterceptor {
 
 
     /**
-     * 从控制器执行完毕之后将执行此方法
+     * 从控制器执行完毕之后将执行此方法,我们可以对控制器返回的结果做一些额外的操作。
      *
      * @param httpServletRequest
      * @param httpServletResponse
      * @param o
-     * @param modelAndView 控制器方法返回的ModelAndView
+     * @param modelAndView 控制器方法返回的ModelAndView。
      */
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
         System.out.println("TestOneInterceptor 的 postHandle 执行");
+
+        //修改控制器返回的字段值
+        modelAndView.addObject("adminName","超级管理员");
+        //修改控制器返回的页面,重定向
+        modelAndView.setViewName("admin/login");
+
     }
 
 
     /**
-     * 拦截器执行完毕
+     * 拦截器执行完毕,一般用于释放资源,比如:关闭连接,释放流等
      */
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
         System.out.println("TestOneInterceptor 的 afterCompletion 执行");
