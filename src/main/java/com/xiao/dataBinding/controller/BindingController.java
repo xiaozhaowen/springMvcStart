@@ -86,6 +86,8 @@ public class BindingController {
         return "天龙八部";
     }
 
+
+    /** 这里使用了一个集合来包装一下String也不会出现汉字乱码*/
     @RequestMapping(value = "/china_list")
     @ResponseBody
     public List<String> getChineseList(){
@@ -104,7 +106,7 @@ public class BindingController {
 
 
 
-
+    /** 这里使用了一个类来包装一下String也不会出现汉字乱码*/
     @RequestMapping(value = "/get_wrapper")
     @ResponseBody
     public StringWrapper getChineseWrapper(){
