@@ -24,8 +24,6 @@ public class BindingController {
 
 
 
-
-
     /**
      * http://localhost:8080/binding/primitiveType?age=10
      * 地址栏的请求地址是大小写敏感的.
@@ -80,9 +78,10 @@ public class BindingController {
      * 如果直接返回字符串的话则默认使用 StringHttpMessageConverter
      * 而 StringHttpMessageConverter 使用的默认编码为东欧字符 ISO-8859-1
      * */
-    @RequestMapping(value = "/china")
+    @RequestMapping(value = "/china",produces = "text/plain;charset=UTF-8")
     @ResponseBody
     public  String getChinese(){
+        System.out.println("控制器的getChinese 方法执行");
         return "天龙八部";
     }
 
