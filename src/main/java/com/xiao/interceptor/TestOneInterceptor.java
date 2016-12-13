@@ -21,7 +21,17 @@ public class TestOneInterceptor implements HandlerInterceptor {
      * @return 如果返回false的话将会中断执行,并且不会进入到控制器中
      */
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
+        //统一设置编码格式，防止乱码出现
+//        httpServletRequest.setCharacterEncoding("utf-8");
         System.out.println("TestOneInterceptor 的 preHandle 执行");
+
+
+        //判断session中是否有用户信息，如果没有登录则重定向到登录页面，然后终止执行链
+        if(httpServletRequest.getSession().getAttribute("userInfo")==null){
+            System.out.println("用户信息为空");
+            httpServletRequest.getRequestDispatcher("/WEB-INF/jsps/admin/login.jsp").forward(httpServletRequest,httpServletResponse);
+            return  false;
+        }
         return true;
     }
 

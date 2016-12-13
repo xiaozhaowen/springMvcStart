@@ -70,7 +70,6 @@
             <mvc:mapping path="/interceptor/*"/>
             <bean class="com.xiao.interceptor.TestOneInterceptor"/>
         </mvc:interceptor>
-
     </mvc:interceptors>
 
 
