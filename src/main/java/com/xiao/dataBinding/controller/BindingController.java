@@ -1,13 +1,11 @@
 package com.xiao.dataBinding.controller;
 
 import com.xiao.dataBinding.model.StringWrapper;
+import com.xiao.dataBinding.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -113,7 +111,16 @@ public class BindingController {
     }
 
 
-
+    /**
+     * 如何在请求中传递json数据
+     *
+     * */
+    @RequestMapping(value = "/json")
+    @ResponseBody
+    public String requestWithJsonData(@RequestBody User user){
+        System.out.println(user.toString());
+        return  user.toString();
+    }
 
 
 
